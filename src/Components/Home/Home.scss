@@ -10,6 +10,7 @@
   justify-content: flex-end;
   gap: calc(100vh / 7);
   color: white;
+  font-family: "Josefin Sans", sans-serif;
 
   .profile__img {
     max-width: 150px;
@@ -22,7 +23,8 @@
       content: "";
       position: absolute;
       min-width: 1px;
-      min-height: calc(100vh / 7 - 16px);
+      // min-height: calc(100vh / 7 - 16px);
+      min-height: 24px;
       top: 100%;
       left: 50%;
       background-color: white;
@@ -40,6 +42,7 @@
     @include mxn.flex(column);
     gap: 16px;
     padding-bottom: 80px;
+    text-align: center;
     &__name {
       text-transform: uppercase;
       position: relative;
@@ -70,7 +73,7 @@
 
   &__nav-bar {
     min-width: 75%;
-    padding: 16px 0 32px 0;
+    padding: 16px 8px 32px 8px;
     position: relative;
 
     &:before {
@@ -85,9 +88,11 @@
     &:after {
       content: "";
       position: absolute;
-      top: calc(-1 * 100vh / 7 - 60px);
       left: 50%;
-      min-height: calc(100vh / 7 + 60px);
+      // top: calc(-1 * 100vh / 7 - 60px);
+      // min-height: calc(100vh / 7 + 60px);
+      top: -24px;
+      min-height: 24px;
       min-width: 1px;
       background-color: white;
     }
@@ -95,17 +100,45 @@
       @include mxn.flex;
       justify-content: space-around;
 
-      &--button {
+      &--link {
         color: white;
         font-size: var(--big-font);
+        font-family: "Josefin Sans", sans-serif;
         padding: 4px 12px;
-        transition: var(--transition-three);
         outline: none;
-
+      }
+      li {
+        transition: var(--transition-three);
         &:hover,
         &:focus {
           transform: translateY(-12px) scale(1.3);
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: (700px)) {
+  .home {
+    @include mxn.flex(column);
+    padding-top: 32px;
+    gap: 24px;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: (600px)) {
+  .home {
+    padding-top: 32px;
+    gap: 24px;
+    justify-content: space-between;
+
+    .title {
+      padding-bottom: 24px;
+    }
+    &__nav-bar {
+      &__list {
+        @include mxn.flex(column);
       }
     }
   }

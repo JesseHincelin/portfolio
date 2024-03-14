@@ -24,6 +24,9 @@ export const LANGUAGE_OPTIONS = {
   FRENCH: "français",
 };
 
+export const isFrench = (language) => (language === LANGUAGE_OPTIONS.FRENCH ? true : false);
+export const isEnglish = (language) => (language === LANGUAGE_OPTIONS.ENGLISH ? true : false);
+
 // export const upperCasing = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 // export const currentDate = () => {

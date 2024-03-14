@@ -1,0 +1,39 @@
+@use "../../Styles/mixins" as mxn;
+
+.about-me {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 32px;
+  padding: 16px;
+  max-width: 900px;
+  //   margin: 0 auto;
+
+  &__title {
+    padding: 16px;
+    font-family: "Josefin Sans", sans-serif;
+  }
+
+  &__section {
+    @include mxn.flex;
+    align-items: center;
+    gap: 8px;
+
+    &--image {
+      flex: 1 0;
+
+      img {
+        border-radius: 16px;
+      }
+    }
+
+    &--content {
+      flex: 1 0;
+      @include mxn.flex(column);
+      gap: 16px;
+      padding: 8px;
+
+      p {
+        text-indent: 24px;
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import "./App.scss";
 import { useSelector } from "react-redux";
 import Home from "../Home/Home";
 import Background from "../Background/Background";
+import AboutMe from "../About me/AboutMe";
 
 function App() {
   const { language } = useSelector((store) => store.languageState);
@@ -11,7 +12,10 @@ function App() {
     {
       path: "/",
       element: <Background />,
-      children: [{ path: "/", element: <Home /> }],
+      children: [
+        { path: "/home", element: <Home /> },
+        { path: "/about-me", element: <AboutMe /> },
+      ],
     },
   ]);
 

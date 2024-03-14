@@ -2,10 +2,12 @@ import "./Home.scss";
 import profile from "../../Source assets/round_profile.png";
 import { useSelector } from "react-redux";
 import { LANGUAGE_OPTIONS } from "../../Utils/general.utils";
-import Button from "../General/Button/Button";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { language } = useSelector((store) => store.languageState);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -28,34 +30,36 @@ const Home = () => {
         <nav className="home__nav-bar">
           <ul className="home__nav-bar__list">
             <li>
-              <Button
-                className="about-me__button home__nav-bar__list--button"
-                content={language === LANGUAGE_OPTIONS.ENGLISH ? "About me" : "A propos de moi"}
-                onClick={() => false} //redirect to about-me component
-              />
+              <Link
+                className="about-me__link home__nav-bar__list--link"
+                to={"/about-me"}
+              >
+                {language === LANGUAGE_OPTIONS.ENGLISH ? "About me" : "A propos de moi"}
+              </Link>
             </li>
             <li>
-              <Button
-                className="portfolio__button home__nav-bar__list--button"
-                content="PortFolio"
-                onClick={() => false} //redirect to portfolio component
-              />
+              <Link
+                className="portfolio__link home__nav-bar__list--link"
+                to={"/portfolio"}
+              >
+                PortFolio
+              </Link>
             </li>
             <li>
-              <Button
-                className="next-projects__button home__nav-bar__list--button"
-                content={
-                  language === LANGUAGE_OPTIONS.ENGLISH ? "Next projects" : "Prochains projets"
-                }
-                onClick={() => false} // redirect to next-projects component
-              />
+              <Link
+                className="next-projects__link home__nav-bar__list--link"
+                to={"/next-projects"}
+              >
+                {language === LANGUAGE_OPTIONS.ENGLISH ? "Next projects" : "Prochains projets"}
+              </Link>
             </li>
             <li>
-              <Button
-                className="contact__button home__nav-bar__list--button"
-                content="Contact"
-                onClick={() => false} // redirect to contact component
-              />
+              <Link
+                className="contact__link home__nav-bar__list--link"
+                to={"/contact"}
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </nav>
