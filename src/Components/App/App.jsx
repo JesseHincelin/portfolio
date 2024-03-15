@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import Home from "../Home/Home";
 import Background from "../Background/Background";
 import AboutMe from "../About me/AboutMe";
+import Contact from "../Contact/Contact";
+import Portfolio from "../Portfolio/Portfolio";
 
 function App() {
   const { language } = useSelector((store) => store.languageState);
@@ -15,6 +17,8 @@ function App() {
       children: [
         { path: "/home", element: <Home /> },
         { path: "/about-me", element: <AboutMe /> },
+        { path: "/portfolio", element: <Portfolio /> },
+        { path: "/contact", element: <Contact /> },
       ],
     },
   ]);

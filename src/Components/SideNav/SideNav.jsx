@@ -19,7 +19,7 @@ const SideNav = () => {
         <li>
           <Link
             className="side-nav__list--link"
-            // to={"/about-me"}
+            to={"/about-me"}
           >
             {isEnglish(language) ? "About me" : "A propos de moi"}
           </Link>
