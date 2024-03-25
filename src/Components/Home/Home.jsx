@@ -45,14 +45,14 @@ const Home = () => {
                 PortFolio
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 className="next-projects__link home__nav-bar__list--link"
                 to={"/next-projects"}
               >
                 {language === LANGUAGE_OPTIONS.ENGLISH ? "Next projects" : "Prochains projets"}
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 className="contact__link home__nav-bar__list--link"

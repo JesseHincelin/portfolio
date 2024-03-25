@@ -32,14 +32,14 @@ const SideNav = () => {
             {"PortFolio"}
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             className="side-nav__list--link"
             to={"/next-projects"}
           >
             {isEnglish(language) ? "Next projects" : "Prochains projets"}
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             className="side-nav__list--link"
