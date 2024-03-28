@@ -1,5 +1,7 @@
 :root {
   --white: #ffffff;
+  --faded-white: hsla(0, 0%, 100%, 0.637);
+  --transparent-white: hsla(0, 0%, 100%, 0.3);
   --light-grey: #bbbbbb;
   --grey: #777777;
   --dark-grey: #555555;
@@ -28,7 +30,7 @@
     0 3px 1px -1px rgba(0, 0, 0, 0.2);
   --boxshadow-basic-colorless: 1px 1px 2px 1px;
   --border-colorless: 0px 0px 0px 1px;
-  --header-height: 150px;
+  --header-height: 48px;
   --header-width: 300px;
   --container-padding: 16px;
   --input-padding: 4px 16px;

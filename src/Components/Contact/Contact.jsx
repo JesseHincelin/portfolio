@@ -8,15 +8,11 @@ const Contact = () => {
 
   return (
     <main className="block">
-      <div className="block__container">
+      <article className="contact">
         <h2 className="contact__title">{"Contact"}</h2>
-        <div className="sub-block">
-          <article className="contact">
-            <section className="contact__section"></section>
-          </article>
-          <SideNav />
-        </div>
-      </div>
+        <section className="contact__section"></section>
+      </article>
+      <SideNav />
     </main>
   );
 };

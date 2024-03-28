@@ -8,96 +8,18 @@
   flex: 1 0;
   padding-left: 32px;
   @include mxn.flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 32px;
+  position: relative;
 
-  &__container {
-    max-width: 100%;
-  }
-
-  .sub-block {
-    @include mxn.flex;
-    // justify-content: center;
-    align-items: flex-start;
-    gap: 16px;
+  .small--block {
     flex: 1 0;
-
-    .small--block {
-      flex: 1 0;
-      margin: 0 auto;
-      min-width: 75%;
-      max-width: 75%;
-    }
-    .side-nav {
-      padding: 8px 8px 0 8px;
-      position: relative;
-      min-width: 20%;
-      max-width: 20%;
-
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-height: 100%;
-        min-width: 1px;
-        background-color: white;
-      }
-
-      li {
-        padding-left: 24px;
-        line-height: 2.5;
-        font-size: var(--big-font);
-        font-family: "Josefin Sans", sans-serif;
-        transition: var(--transition-one);
-        // text-align: end;
-
-        a {
-          position: relative;
-          outline: none;
-
-          &:before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            min-width: 0%;
-            min-height: 1px;
-            background-color: white;
-            transition: var(--transition-one);
-            transform-origin: right;
-          }
-          &:focus {
-            &:before {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              right: 0;
-              min-width: 100%;
-              min-height: 1px;
-              background-color: white;
-            }
-          }
-        }
-
-        &:hover,
-        &:focus {
-          padding-left: 0;
-          font-style: italic;
-
-          a,
-          a:focus {
-            &:before {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              right: 0;
-              min-width: 100%;
-              min-height: 1px;
-              background-color: white;
-            }
-          }
-        }
-      }
-    }
+    margin: 0 auto;
+    min-width: 75%;
+    max-width: 75%;
+  }
+  .side-nav {
+    @include mxn.side-nav;
   }
 }

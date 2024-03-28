@@ -8,15 +8,11 @@ const Portfolio = () => {
 
   return (
     <main className="block">
-      <div className="block__container">
+      <article className="portfolio">
         <h2 className="portfolio__title">{"portfolio"}</h2>
-        <div className="sub-block">
-          <article className="portfolio">
-            <section className="portfolio__section"></section>
-          </article>
-          <SideNav />
-        </div>
-      </div>
+        <section className="portfolio__section"></section>
+      </article>
+      <SideNav />
     </main>
   );
 };

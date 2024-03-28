@@ -10,23 +10,6 @@
   flex-basis: 0;
 }
 
-@mixin box {
-  transform: translateY(50px);
-  box-shadow: 0 0 0 3px var(--primary-color);
-  border-radius: var(--radius);
-  background: var(--primary-color);
-  color: var(--text-color);
-  min-width: 300px;
-  h2 {
-    border-radius: var(--radius) var(--radius) 0 0;
-    box-shadow: 0 0 0 1px var(--primary-color);
-    width: 100%;
-    padding: 16px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-}
-
 @mixin button($active: true) {
   border: none;
   border-radius: var(--big-radius);
@@ -53,111 +36,91 @@
   }
 }
 
-@mixin form-button($big: false) {
-  border: none;
-  line-height: 1.5;
-  transition: var(--transition-one);
-  box-shadow: var(--boxshadow-basic-colorless) var(--boxshadow-color);
-  cursor: pointer;
-  color: var(--text-color-negative);
-  background: var(--main-color);
-  &:hover,
-  &:focus {
-    color: var(--text-color-main);
-    background: var(--background-color);
-    box-shadow: inset 0 0 0 2px var(--main-color);
-    outline: none;
-  }
-  @if $big {
-    font-size: var(--huge-font);
-    border-radius: var(--big-radius);
-    padding: 4px 32px;
-  } @else {
-    font-size: var(--big-font);
-    border-radius: var(--big-radius);
-    padding: 0 24px;
-  }
-}
-
-@mixin dashboard-button {
-  border: none;
-  border-radius: var(--asym-radius);
-  line-height: 1.5;
-  padding: 8px 32px;
-  min-width: 250px;
+@mixin form-button {
+  color: var(--white);
   text-align: center;
+  padding: 4px 16px;
+  border-radius: 40px;
+  box-shadow: var(--border-colorless) var(--white);
+  background-color: var(--transparent-white);
+  font-size: var(--big-font);
   transition: var(--transition-one);
-  font-size: var(--huge-font);
-  font-weight: 600;
-  box-shadow: var(--boxshadow-basic-colorless) var(--boxshadow-color);
-  cursor: pointer;
-  color: var(--text-color-negative);
-  background: var(--main-color);
   &:hover,
   &:focus {
-    color: var(--text-color-main);
-    background: var(--fith-color);
-    box-shadow: inset 0 0 0 2px var(--main-color);
-    outline: none;
-  }
-}
-// @mixin form-button {
-//   border: none;
-//   border-radius: var(--big-radius);
-//   line-height: 1.5;
-//   padding: 0 24px;
-//   transition: var(--transition-one);
-//   font-size: var(--big-font);
-//   box-shadow: var(--boxshadow-basic-colorless) var(--boxshadow-color);
-//   cursor: pointer;
-//   color: var(--text-color-negative);
-//   background: var(--main-color);
-//   &:hover,
-//   &:focus {
-//     color: var(--text-color-main);
-//     background: var(--background-color);
-//     box-shadow: inset 0 0 0 2px var(--main-color);
-//     outline: none;
-//   }
-// }
-@mixin survey-button {
-  border: none;
-  border-radius: var(--big-radius);
-  line-height: 1.5;
-  padding: 3px 16px;
-  transition: var(--transition-one);
-  font-size: var(--medium-font);
-  box-shadow: var(--boxshadow-basic-colorless) var(--boxshadow-color);
-  cursor: pointer;
-  color: var(--text-color-negative);
-  background: var(--main-color);
-  &:hover,
-  &:focus {
-    color: var(--text-color-main);
-    background: var(--background-color);
-    box-shadow: inset 0 0 0 2px var(--main-color);
-    outline: none;
+    transform: scale(1.1);
+    font-weight: 700;
   }
 }
 
-@mixin navigation-link {
-  a {
-    color: var(--third-color);
-    transition: var(--transition-one);
-    position: relative;
-  }
-  a:before {
+@mixin side-nav {
+  padding: 8px 8px 0 8px;
+  position: sticky;
+  top: var(--header-height);
+  min-width: 18%;
+  max-width: 18%;
+
+  &:before {
     content: "";
-    width: 0%;
-    height: 1px;
-    background-color: var(--third-color);
     position: absolute;
-    top: 100%;
-    transform-origin: left;
-    transition: var(--transition-one);
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 1px;
+    background-color: white;
   }
 
-  a:hover:before {
-    width: 100%;
+  li {
+    padding-left: 24px;
+    line-height: 2.5;
+    font-size: var(--big-font);
+    font-family: "Josefin Sans", sans-serif;
+    transition: var(--transition-one);
+
+    a {
+      position: relative;
+      outline: none;
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        min-width: 0%;
+        min-height: 1px;
+        background-color: white;
+        transition: var(--transition-one);
+        transform-origin: right;
+      }
+      &:focus {
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          min-width: 100%;
+          min-height: 1px;
+          background-color: white;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      padding-left: 0;
+      font-style: italic;
+
+      a,
+      a:focus {
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          min-width: 100%;
+          min-height: 1px;
+          background-color: white;
+        }
+      }
+    }
   }
 }

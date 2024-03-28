@@ -19,7 +19,7 @@ const Input = ({
   return (
     <div className={!!className ? `field ${className}--field` : "field"}>
       <label
-        htmlFor={`${id}`}
+        htmlFor={id}
         className={
           !!className ? `field__label label ${className}--field__label` : "field__label label"
         }
@@ -27,8 +27,8 @@ const Input = ({
         {label}
       </label>
       <input
-        id={`${id}`}
-        name={`${id}`}
+        id={id}
+        name={id}
         className={
           !!className ? `field__input input ${className}--field__input` : "field__input input"
         }

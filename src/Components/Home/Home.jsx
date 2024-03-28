@@ -21,11 +21,11 @@ const Home = () => {
         </div>
         <div className="title">
           <h1 className="title__name">jesse hincelin</h1>
-          <span className="title__job">
+          <p className="title__job">
             {language === LANGUAGE_OPTIONS.ENGLISH
               ? "Web Dev, App Dev"
               : "Développeur web et applications web"}
-          </span>
+          </p>
         </div>
         <nav className="home__nav-bar">
           <ul className="home__nav-bar__list">
@@ -58,7 +58,7 @@ const Home = () => {
                 className="contact__link home__nav-bar__list--link"
                 to={"/contact"}
               >
-                Contact
+                {language === LANGUAGE_OPTIONS.ENGLISH ? "Contact" : "Me contacter"}
               </Link>
             </li>
           </ul>

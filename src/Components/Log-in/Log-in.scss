@@ -1,0 +1,68 @@
+@use "../../Styles/mixins" as mxn;
+
+.login-block {
+  max-width: 100%;
+  max-height: 100vh;
+  color: white;
+  text-align: left;
+  flex: 1 0;
+  padding-left: 32px;
+  @include mxn.flex;
+  justify-content: center;
+
+  &__container {
+    max-width: 100%;
+  }
+
+  &__title {
+    color: white;
+  }
+
+  .small--block {
+    flex: 1 0;
+    margin: 0 auto;
+    min-width: 75%;
+    max-width: 75%;
+    @include mxn.flex(column);
+    align-items: center;
+    gap: 16px;
+
+    .login {
+      // &__section {
+      // }
+
+      &__subtitle {
+        text-align: center;
+      }
+
+      &__form {
+        @include mxn.flex(column);
+        align-items: center;
+        gap: 40px;
+
+        .field {
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            min-height: 24px;
+            max-height: 24px;
+            min-width: 1px;
+            background-color: var(--white);
+          }
+        }
+
+        &--button {
+          @include mxn.form-button;
+        }
+      }
+    }
+  }
+
+  .side-nav {
+    @include mxn.side-nav;
+  }
+}

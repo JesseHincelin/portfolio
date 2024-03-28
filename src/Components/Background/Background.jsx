@@ -32,38 +32,36 @@ const Background = () => {
 
   return (
     <div className="background">
-      <div className="background__overlay">
-        <div className="background__box">
-          <span>
-            <Button
-              className="background__connect"
-              content="Connect (temporary)"
-              onClick={handleConnection}
-            />
-          </span>
-          <span className="background__language">
-            <Button
-              className={
-                isEnglish(language)
-                  ? "background__language--button english__button active__language"
-                  : "background__language--button english__button"
-              }
-              content="EN"
-              onClick={handleEnglishClick} // could be one function only between En and Fr
-            />
-            <Button
-              className={
-                isFrench(language)
-                  ? "background__language--button french__button active__language"
-                  : "background__language--button french__button"
-              }
-              content="FR"
-              onClick={handleFrenchClick} // could be one function only between En and Fr
-            />
-          </span>
-        </div>
-        <Outlet />
+      <div className="background__box">
+        <span>
+          <Button
+            className="background__connect"
+            content="Connect (temporary)"
+            onClick={handleConnection}
+          />
+        </span>
+        <span className="background__language">
+          <Button
+            className={
+              isEnglish(language)
+                ? "background__language--button english__button active__language"
+                : "background__language--button english__button"
+            }
+            content="EN"
+            onClick={handleEnglishClick} // could be one function only between En and Fr
+          />
+          <Button
+            className={
+              isFrench(language)
+                ? "background__language--button french__button active__language"
+                : "background__language--button french__button"
+            }
+            content="FR"
+            onClick={handleFrenchClick} // could be one function only between En and Fr
+          />
+        </span>
       </div>
+      <Outlet />
     </div>
   );
 };
