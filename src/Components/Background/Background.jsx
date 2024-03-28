@@ -12,6 +12,10 @@ const Background = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleConnection = () => {
+    navigate("/login"); //navigate to the connection component
+  };
+
   const handleEnglishClick = () => {
     if (isEnglish(language)) return;
     dispatch(setLanguage({ language: LANGUAGE_OPTIONS.ENGLISH }));
@@ -28,7 +32,14 @@ const Background = () => {
 
   return (
     <div className="background">
-      <div className="background__overlay">
+      <div className="background__box">
+        <span>
+          <Button
+            className="background__connect"
+            content="Connect (temporary)"
+            onClick={handleConnection}
+          />
+        </span>
         <span className="background__language">
           <Button
             className={
@@ -49,8 +60,8 @@ const Background = () => {
             onClick={handleFrenchClick} // could be one function only between En and Fr
           />
         </span>
-        <Outlet />
       </div>
+      <Outlet />
     </div>
   );
 };

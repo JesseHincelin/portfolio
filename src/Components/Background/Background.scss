@@ -15,8 +15,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  &__overlay {
-    position: absolute;
+  overflow: auto;
+  &:before {
+    content: "";
+    position: fixed;
     top: 0;
     left: 0;
     min-width: 100%;
@@ -24,12 +26,26 @@
     background-color: rgba(0, 0, 0, 0.6);
     @include mxn.flex;
     justify-content: center;
-    overflow: auto;
   }
+  &__box {
+    flex: 1 0;
+    padding: 8px 16px;
+    position: sticky;
+    top: 0px;
+    min-height: var(--header-height);
+    max-height: var(--header-height);
+    @include mxn.flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  &__connect {
+    color: white;
+  }
+
   &__language {
-    position: absolute;
-    top: 10px;
-    right: 16px;
+    position: relative;
 
     &:before {
       content: "";
