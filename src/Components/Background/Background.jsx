@@ -5,15 +5,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { LANGUAGE_OPTIONS, isEnglish, isFrench } from "../../Utils/general.utils";
 import { setLanguage } from "../../Redux/Reducers/language.reducer";
 import { useEffect } from "react";
+import { resetUser } from "../../Redux/Reducers/user.reducer";
+import { resetForm } from "../../Redux/Reducers/user-form.reducer";
 
 const Background = () => {
   const { language } = useSelector((store) => store.languageState);
+  const { userName } = useSelector((store) => store.userState);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleConnection = () => {
     navigate("/login"); //navigate to the connection component
+  };
+
+  const handleDisconnect = () => {
+    dispatch(resetUser());
+    dispatch(resetForm());
+    localStorage.removeItem("token");
   };
 
   const handleEnglishClick = () => {
@@ -34,11 +43,20 @@ const Background = () => {
     <div className="background">
       <div className="background__box">
         <span>
-          <Button
-            className="background__connect"
-            content="Connect (temporary)"
-            onClick={handleConnection}
-          />
+          {!!userName ? (
+            <Button
+              className="background__connect"
+              content={`Welcome ${userName} !`}
+              title={"Log-out"}
+              onClick={handleDisconnect}
+            />
+          ) : (
+            <Button
+              className="background__connect"
+              content="Connect (temporary)"
+              onClick={handleConnection}
+            />
+          )}
         </span>
         <span className="background__language">
           <Button

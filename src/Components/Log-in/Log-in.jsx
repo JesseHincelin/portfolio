@@ -7,6 +7,7 @@ import Input from "../General/Input/Input";
 import { handleFieldChange } from "../../Redux/Reducers/user-form.reducer";
 import Button from "../General/Button/Button";
 import SideNav from "../SideNav/SideNav";
+import { loginThunk } from "../../Api/connexion.api";
 
 const Login = () => {
   const { language } = useSelector((store) => store.languageState);
@@ -22,7 +23,8 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    // dispatch login thunk
+    dispatch(loginThunk());
+    navigate("/home");
   };
 
   return (

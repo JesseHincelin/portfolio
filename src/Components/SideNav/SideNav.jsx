@@ -4,6 +4,7 @@ import { isEnglish } from "../../Utils/general.utils";
 
 const SideNav = () => {
   const { language } = useSelector((store) => store.languageState);
+  const { userName } = useSelector((store) => store.userState);
 
   return (
     <nav className="side-nav">
@@ -48,6 +49,26 @@ const SideNav = () => {
             {"Contact"}
           </Link>
         </li>
+        {!!userName && (
+          <>
+            <li>
+              <Link
+                className="side-nav__list--link"
+                to={"/messages"}
+              >
+                {isEnglish(language) ? "Messages" : "Messages"}
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="side-nav__list--link edit__link"
+                to={"/Edit"}
+              >
+                {isEnglish(language) ? "Edit" : "Editer"}
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

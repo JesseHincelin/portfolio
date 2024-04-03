@@ -1,11 +1,12 @@
 import "./Home.scss";
 import profile from "../../Source assets/round_profile.png";
 import { useSelector } from "react-redux";
-import { LANGUAGE_OPTIONS } from "../../Utils/general.utils";
+import { LANGUAGE_OPTIONS, isEnglish } from "../../Utils/general.utils";
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { language } = useSelector((store) => store.languageState);
+  const { userName } = useSelector((store) => store.userState);
 
   const navigate = useNavigate();
 
@@ -22,9 +23,7 @@ const Home = () => {
         <div className="title">
           <h1 className="title__name">jesse hincelin</h1>
           <p className="title__job">
-            {language === LANGUAGE_OPTIONS.ENGLISH
-              ? "Web Dev, App Dev"
-              : "Développeur web et applications web"}
+            {isEnglish(language) ? "Web Dev, App Dev" : "Développeur web et applications web"}
           </p>
         </div>
         <nav className="home__nav-bar">
@@ -34,7 +33,7 @@ const Home = () => {
                 className="about-me__link home__nav-bar__list--link"
                 to={"/about-me"}
               >
-                {language === LANGUAGE_OPTIONS.ENGLISH ? "About me" : "A propos de moi"}
+                {isEnglish(language) ? "About me" : "A propos de moi"}
               </Link>
             </li>
             <li>
@@ -58,9 +57,29 @@ const Home = () => {
                 className="contact__link home__nav-bar__list--link"
                 to={"/contact"}
               >
-                {language === LANGUAGE_OPTIONS.ENGLISH ? "Contact" : "Me contacter"}
+                {isEnglish(language) ? "Contact" : "Me contacter"}
               </Link>
             </li>
+            {!!userName && (
+              <>
+                <li>
+                  <Link
+                    className="messages__link home__nav-bar__list--link"
+                    to={"/messages"}
+                  >
+                    {isEnglish(language) ? "Messages" : "Messages"}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="edit__link home__nav-bar__list--link"
+                    to={"/Edit"}
+                  >
+                    {isEnglish(language) ? "Edit" : "Editer"}
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>

@@ -1,9 +1,9 @@
-import { setUser } from "../Redux/reducers/user.reducer";
-import { getFromStorage, getRouteFromStorage, saveLocalStorage } from "../Utils/general.utils";
-import { navigateTo } from "../Utils/navigate.utils";
-import { getRequest, postRequest } from "./requests.api";
+import { resetForm, setFormError, startLoading } from "../Redux/Reducers/user-form.reducer";
+import { setUser } from "../Redux/Reducers/user.reducer";
+import { saveLocalStorage } from "../Utils/general.utils";
+import { postRequest } from "./requests.api";
 
-export const loginThunk = (functionNavigate) => async (dispatch, getStates) => {
+export const loginThunk = () => async (dispatch, getStates) => {
   const { loading, userNameValue, passwordValue } = getStates().userFormState;
 
   if (!!loading) return;
@@ -21,27 +21,28 @@ export const loginThunk = (functionNavigate) => async (dispatch, getStates) => {
   if (!!response.result && !!response.result.user && response.result.token) {
     dispatch(setUser({ user: response.result.user }));
     saveLocalStorage("token", response.result.token);
+    dispatch(resetForm());
 
     // navigateTo("/dashboard", functionNavigate);
   }
 };
 
-export const autoLoginThunk = (functionNavigate) => async (dispatch, getStates) => {
-  const { loading } = getStates().userFormState;
+// export const autoLoginThunk = (functionNavigate) => async (dispatch, getStates) => {
+//   const { loading } = getStates().userFormState;
 
-  if (!!loading) return;
-  dispatch(startLoading());
+//   if (!!loading) return;
+//   dispatch(startLoading());
 
-  const response = await getRequest("user/auto-login", getFromStorage("token"));
+//   const response = await getRequest("user/auto-login", getFromStorage("token"));
 
-  if (!!response.error) {
-    localStorage.removeItem("token");
-    dispatch(resetForm());
-    navigateTo("/login", functionNavigate);
-  }
+//   if (!!response.error) {
+//     localStorage.removeItem("token");
+//     dispatch(resetForm());
+//     navigateTo("/login", functionNavigate);
+//   }
 
-  if (!!response.result && !!response.result.user) {
-    dispatch(setUser({ user: response.result.user }));
-    // navigateTo(getFromStorage("route"), functionNavigate);
-  }
-};
+//   if (!!response.result && !!response.result.user) {
+//     dispatch(setUser({ user: response.result.user }));
+//     // navigateTo(getFromStorage("route"), functionNavigate);
+//   }
+// };
