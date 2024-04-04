@@ -7,6 +7,8 @@ import AboutMe from "../About me/AboutMe";
 import Contact from "../Contact/Contact";
 import Portfolio from "../Portfolio/Portfolio";
 import Login from "../Log-in/Log-in";
+import EditOrigin from "../Edit/Edit Origin/EditOrigin";
+import Edit from "../Edit/Edit general/Edit";
 
 function App() {
   const { language } = useSelector((store) => store.languageState);
@@ -21,6 +23,11 @@ function App() {
         { path: "/about-me", element: <AboutMe /> },
         { path: "/portfolio", element: <Portfolio /> },
         { path: "/contact", element: <Contact /> },
+        {
+          path: "/edit",
+          element: <Edit />,
+          children: [{ path: "/edit/dashboard", element: <EditOrigin /> }],
+        },
       ],
     },
   ]);

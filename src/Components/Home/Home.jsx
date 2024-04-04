@@ -62,18 +62,18 @@ const Home = () => {
             </li>
             {!!userName && (
               <>
-                <li>
+                {/* <li>
                   <Link
                     className="messages__link home__nav-bar__list--link"
                     to={"/messages"}
                   >
                     {isEnglish(language) ? "Messages" : "Messages"}
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link
                     className="edit__link home__nav-bar__list--link"
-                    to={"/Edit"}
+                    to={"/edit/dashboard"}
                   >
                     {isEnglish(language) ? "Edit" : "Editer"}
                   </Link>

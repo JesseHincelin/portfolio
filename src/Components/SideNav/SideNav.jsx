@@ -51,18 +51,18 @@ const SideNav = () => {
         </li>
         {!!userName && (
           <>
-            <li>
+            {/* <li>
               <Link
                 className="side-nav__list--link"
                 to={"/messages"}
               >
                 {isEnglish(language) ? "Messages" : "Messages"}
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 className="side-nav__list--link edit__link"
-                to={"/Edit"}
+                to={"/edit/dashboard"}
               >
                 {isEnglish(language) ? "Edit" : "Editer"}
               </Link>
