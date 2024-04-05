@@ -5,6 +5,7 @@ const USER_STATE = {
   userName: "",
   email: "",
   projects: [],
+  projectToEdit: {},
 };
 
 const getInitialState = () => USER_STATE;
@@ -23,9 +24,16 @@ const userSlice = createSlice({
         projects: user.projects,
       };
     },
+    setProjectToEdit: (state, action) => {
+      const { project } = action.payload;
+      return { ...state, projectToEdit: project };
+    },
+    // resetProjectToEdit: (state) => {
+    //   ({ ...state, projectToEdit: {} });
+    // },
     resetUser: () => getInitialState(),
   },
 });
 
-export const { setUser, resetUser } = userSlice.actions;
+export const { setUser, setProjectToEdit, resetUser } = userSlice.actions;
 export default userSlice.reducer;

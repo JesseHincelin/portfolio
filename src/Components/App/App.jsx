@@ -9,6 +9,8 @@ import Portfolio from "../Portfolio/Portfolio";
 import Login from "../Log-in/Log-in";
 import EditOrigin from "../Edit/Edit Origin/EditOrigin";
 import Edit from "../Edit/Edit general/Edit";
+import EditPortfolio from "../Edit/Edit portfolio/EditPortfolio";
+import EditProject from "../Edit/Edit project/EditProject";
 
 function App() {
   const { language } = useSelector((store) => store.languageState);
@@ -27,6 +29,8 @@ function App() {
           path: "/edit",
           element: <Edit />,
           children: [{ path: "/edit/dashboard", element: <EditOrigin /> }],
+          children: [{ path: "/edit/portfolio", element: <EditPortfolio /> }],
+          children: [{ path: "/edit/edit-project", element: <EditProject /> }],
         },
       ],
     },
