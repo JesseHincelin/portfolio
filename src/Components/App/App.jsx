@@ -7,10 +7,11 @@ import AboutMe from "../About me/AboutMe";
 import Contact from "../Contact/Contact";
 import Portfolio from "../Portfolio/Portfolio";
 import Login from "../Log-in/Log-in";
-import EditOrigin from "../Edit/Edit Origin/EditOrigin";
 import Edit from "../Edit/Edit general/Edit";
 import EditPortfolio from "../Edit/Edit portfolio/EditPortfolio";
 import EditProject from "../Edit/Edit project/EditProject";
+import EditDashboard from "../Edit/Edit Dashboard/EditDashboard";
+import NewProject from "../Edit/New project/NewProject";
 
 function App() {
   const { language } = useSelector((store) => store.languageState);
@@ -28,9 +29,12 @@ function App() {
         {
           path: "/edit",
           element: <Edit />,
-          children: [{ path: "/edit/dashboard", element: <EditOrigin /> }],
-          children: [{ path: "/edit/portfolio", element: <EditPortfolio /> }],
-          children: [{ path: "/edit/edit-project", element: <EditProject /> }],
+          children: [
+            { path: "/edit/dashboard", element: <EditDashboard /> },
+            { path: "/edit/portfolio", element: <EditPortfolio /> },
+            { path: "/edit/edit-project", element: <EditProject /> },
+            { path: "/edit/new-project", element: <NewProject /> },
+          ],
         },
       ],
     },

@@ -23,6 +23,7 @@ const Background = () => {
     dispatch(resetUser());
     dispatch(resetForm());
     localStorage.removeItem("token");
+    navigate("/home");
   };
 
   const handleEnglishClick = () => {

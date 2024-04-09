@@ -1,0 +1,30 @@
+@use "../../../Styles/mixins" as mxn;
+
+.small--block {
+  color: var(--white);
+  font-family: "Josefin Sans", sans-serif;
+
+  &__title {
+    font-size: var(--huge-font);
+  }
+
+  &__content {
+    color: var(--white);
+  }
+
+  &__list {
+    @include mxn.flex(column);
+    align-items: center;
+    gap: 8px;
+  }
+  .edit__button {
+    color: var(--white);
+    @include mxn.edit-button;
+  }
+}
+
+.white-square {
+  background-color: var(--clear-white);
+  border-radius: 24px;
+  padding: 16px;
+}

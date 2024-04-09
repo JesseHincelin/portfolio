@@ -1,12 +1,14 @@
 :root {
   --white: #ffffff;
-  --faded-white: hsla(0, 0%, 100%, 0.637);
+  --clear-white: rgba(255, 255, 255, 0.2);
+  --faded-white: hsla(0, 0%, 100%, 0.5);
   --transparent-white: hsla(0, 0%, 100%, 0.3);
   --light-grey: #bbbbbb;
   --grey: #777777;
   --dark-grey: #555555;
   --darker-grey: #353535;
   --black: #000000de;
+  --faded-black: rgba(0, 0, 0, 0.4);
   --light-green: #d0f5be;
   --green: #98eecc;
   --brown: #a4907c;

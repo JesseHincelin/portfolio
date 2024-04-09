@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const PROJECT_STATE = {
   projectName: "",
-  description: [],
+  description: { english: "", french: "" },
   paragraph: [],
   mainPicture: "",
   images: [],
@@ -28,8 +28,12 @@ const projectSlice = createSlice({
       };
     },
     editProjectProps: (state, action) => {
-      const { value, props } = action.payload;
-      return { ...state, [props]: value };
+      const { value, props, subProps } = action.payload;
+      if (!subProps) {
+        return { ...state, [props]: value };
+      } else {
+        return { ...state, [props]: { ...props, [subProps]: value } };
+      }
     },
     resetProject: () => getInitialState(),
   },

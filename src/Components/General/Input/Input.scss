@@ -3,7 +3,6 @@
 .field {
   position: relative;
   @include mxn.flex;
-  max-width: 250px;
 
   &__label {
     position: absolute;
@@ -16,9 +15,22 @@
   &__input {
     flex: 1 0;
     padding: 4px 16px;
-    border-radius: 40px;
+    max-width: 250px;
+    border-radius: 16px;
     background-color: transparent;
     box-shadow: var(--border-colorless) var(--white);
     color: var(--white);
+    outline: none;
+  }
+  &__text-area {
+    flex: 1 0;
+    padding: 4px 16px;
+    // max-width: 450px;
+    min-height: 31px;
+    border-radius: 16px 16px 4px 16px;
+    background-color: transparent;
+    box-shadow: var(--border-colorless) var(--white);
+    color: var(--white);
+    outline: none;
   }
 }

@@ -18,6 +18,7 @@ const EditPortfolio = () => {
 
   const handleNewProjectClick = () => {
     // navigate to component NewProject
+    navigate("/edit/new-project");
   };
 
   return (
@@ -41,7 +42,7 @@ const EditPortfolio = () => {
       </section>
       <div className="separation"></div>
       <Button
-        className="new-project__button"
+        className="new-project__button edit__button"
         content="New Project"
         onClick={handleNewProjectClick}
       />
