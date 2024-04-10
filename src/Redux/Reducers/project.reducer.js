@@ -32,7 +32,7 @@ const projectSlice = createSlice({
       if (!subProps) {
         return { ...state, [props]: value };
       } else {
-        return { ...state, [props]: { ...props, [subProps]: value } };
+        return { ...state, [props]: { ...state[props], [subProps]: value } };
       }
     },
     resetProject: () => getInitialState(),
