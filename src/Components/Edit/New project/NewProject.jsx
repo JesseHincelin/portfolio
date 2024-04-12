@@ -5,6 +5,7 @@ import TextArea from "../../General/Text-Area/TextArea";
 import { useState } from "react";
 import { generateId } from "../../../Utils/general.utils";
 import Button from "../../General/Button/Button";
+import "./NewProject.scss";
 
 const NewProject = () => {
   const { projectName, description, paragraph, mainPicture, images, visible } = useSelector(
@@ -153,14 +154,14 @@ const NewProject = () => {
                 handleNewParagraphChange(value, "french", "paragraphContent")
               }
             />
-            <div className="paragraph-buttons">
+            <div className="project-paragraph--buttons">
               <Button
-                className="paragraph-button__finished"
-                content="finished"
+                className="project-paragraph--button__finished project-paragraph--button"
+                content="Finished"
                 onClick={handleParagraphFinishButton}
               />
               <Button
-                className="paragraph-button__next"
+                className="project-paragraph--button__next project-paragraph--button"
                 content="Next Paragraph"
                 type="submit"
               />
@@ -193,12 +194,12 @@ const NewProject = () => {
             />
             <div className="project-pictures__buttons">
               <Button
-                className="project-pictures__buttons--finished"
+                className="project-pictures__buttons--finished project-pictures__button"
                 content="Finished"
                 onClick={handlePicturesFinishButton}
               />
               <Button
-                className="project-pictures__buttons--next"
+                className="project-pictures__buttons--next project-pictures__button"
                 content="Next picture"
                 type="submit"
               />
@@ -208,12 +209,12 @@ const NewProject = () => {
         {/* input box for visible / not visible */}
         <div className="small--block__form--buttons">
           <Button
-            className="small--block__form--buttons--save"
+            className="small--block__form--buttons--save small--block__form--button"
             content="Save"
             onClick={handleSaveButton}
           />
           <Button
-            className="small--block__form--buttons--cancel"
+            className="small--block__form--buttons--cancel small--block__form--button"
             content="Cancel"
             onClick={handleCancelButton}
           />

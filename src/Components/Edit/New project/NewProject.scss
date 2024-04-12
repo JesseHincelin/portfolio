@@ -1,0 +1,54 @@
+@use "../../../Styles/mixins" as mxn;
+
+.small--block {
+  &__form {
+    @include mxn.flex(column);
+    gap: 16px;
+
+    &--buttons {
+      @include mxn.flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &--button {
+      @include mxn.edit-button;
+    }
+  }
+}
+
+.project {
+  &-paragraph {
+    &__form {
+      @include mxn.flex(column);
+      gap: 8px;
+    }
+
+    &--buttons {
+      @include mxn.flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &--button {
+      @include mxn.edit-button;
+    }
+  }
+  &-pictures {
+    &__form {
+      @include mxn.flex(column);
+      gap: 8px;
+    }
+
+    &__buttons {
+      @include mxn.flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &__button {
+      @include mxn.edit-button;
+      color: var(--white);
+    }
+  }
+}
