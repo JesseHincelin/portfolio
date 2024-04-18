@@ -12,17 +12,22 @@ const NewProject = () => {
     (store) => store.projectState
   );
 
-  const [newParagraph, setNewParagraph] = useState({
-    english: {
-      paragraphTitle: "",
-      paragraphContent: "",
-    },
-    french: {
-      paragraphTitle: "",
-      paragraphContent: "",
-    },
-  });
+  const [newParagraph, setNewParagraph] = useState(blankParagraph());
+  const [editingParagraph, setEditingParagraph] = useState(false);
   const [newPicture, setNewPicture] = useState("");
+
+  function blankParagraph() {
+    return {
+      english: {
+        paragraphTitle: "",
+        paragraphContent: "",
+      },
+      french: {
+        paragraphTitle: "",
+        paragraphContent: "",
+      },
+    };
+  }
 
   const dispatch = useDispatch();
 
@@ -39,8 +44,21 @@ const NewProject = () => {
   };
 
   const handleParagraphFormSubmit = (e) => {
-    // e.preventDefault()
-    // handle submit
+    e.preventDefault();
+    const allParaph = [...paragraph];
+    allParaph.push(newParagraph);
+    dispatch(editProjectProps({ value: allParaph, props: "paragraph" }));
+    setNewParagraph(blankParagraph());
+  };
+
+  const handleEditParagraph = () => {
+    // handle edit
+  };
+
+  const handleParagraphDelete = (index) => {
+    const allParaph = [...paragraph];
+    allParaph.splice(index, 1);
+    dispatch(editProjectProps({ value: allParaph, props: "paragraph" }));
   };
 
   const handlePicturesFinishButton = () => {
@@ -61,7 +79,7 @@ const NewProject = () => {
 
   return (
     <article className="small--block white-square">
-      <h2 className="small--block__title">New Project</h2>
+      <h2 className="small--block__title">New project :</h2>
       <section className="small--block__form">
         <Input
           className="project-name"
@@ -91,14 +109,16 @@ const NewProject = () => {
         <div className="project-paragraph black-square">
           <h3 className="project-paragraph__title">Paragraphs :</h3>
           <ul className="project-paragraph__list">
-            {paragraph.map((item) => (
+            {paragraph.map((item, index) => (
               <li
                 key={generateId()}
                 className="project-paragraph__list--item"
               >
                 <span>{item.english.paragraphTitle}</span>
                 <Button
-                //modification of a paragraph through a modale
+                  className="paragraph__button--delete"
+                  content="Delete"
+                  onClick={() => handleParagraphDelete(index)}
                 />
               </li>
             ))}
@@ -132,7 +152,7 @@ const NewProject = () => {
               className="paragraph-content-english"
               id="paragraph-content-english"
               label={
-                newParagraph.english.paragraphContent !== "" ? "" : "Paragraph content in french"
+                newParagraph.english.paragraphContent !== "" ? "" : "Paragraph content in english"
               }
               value={newParagraph.english.paragraphContent}
               required={true}
@@ -155,16 +175,26 @@ const NewProject = () => {
               }
             />
             <div className="project-paragraph--buttons">
-              <Button
+              {!!editingParagraph ? (
+                <Button
+                  className="project-paragraph--button__edit project-paragraph--button"
+                  content="Edit Paragraph"
+                  onClick={() => handleEditParagraph()}
+                />
+              ) : (
+                <>
+                  {/* <Button
                 className="project-paragraph--button__finished project-paragraph--button"
                 content="Finished"
                 onClick={handleParagraphFinishButton}
-              />
-              <Button
-                className="project-paragraph--button__next project-paragraph--button"
-                content="Next Paragraph"
-                type="submit"
-              />
+              /> */}
+                  <Button
+                    className="project-paragraph--button__add project-paragraph--button"
+                    content="Add Paragraph"
+                    type="submit"
+                  />
+                </>
+              )}
             </div>
           </form>
         </div>
